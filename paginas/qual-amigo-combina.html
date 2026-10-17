@@ -1,0 +1,650 @@
+<div id="aa-quiz">
+  <div id="aq-intro" class="aq-tela">
+    <span class="aq-etiqueta">Quiz Abrigo Amigo 🐾</span>
+    <h2>Qual amigo combina com você?</h2>
+    <p>
+      Responda 6 perguntas rápidas sobre a sua rotina e o seu lar.
+      No final, mostramos quais dos nossos bichinhos têm mais a ver
+      com você.
+    </p>
+    <button id="aq-comecar" class="aq-btn aq-rosa" type="button">
+      Começar o quiz ♡
+    </button>
+  </div>
+
+  <div id="aq-pergunta" class="aq-tela" hidden>
+    <div class="aq-progresso">
+      <div id="aq-barra" class="aq-barra"></div>
+    </div>
+    <p id="aq-contador" class="aq-contador"></p>
+    <h3 id="aq-texto">Responda à pergunta do quiz</h3>
+    <div id="aq-opcoes" class="aq-opcoes"></div>
+    <button id="aq-voltar" class="aq-link" type="button">
+      ← Voltar
+    </button>
+  </div>
+
+  <div id="aq-resultado" class="aq-tela" hidden>
+    <span class="aq-etiqueta">Seu resultado 🐾</span>
+    <h2>Quem combina com você</h2>
+    <div id="aq-principal" class="aq-destaque"></div>
+    <h3 class="aq-sub">Também podem combinar</h3>
+    <div id="aq-outros" class="aq-mini"></div>
+
+    <div class="aq-acoes">
+      <a
+        id="aq-adotar"
+        class="aq-btn aq-rosa"
+        href="adote-um-amigo.html">
+        ♡ Quero adotar
+      </a>
+      <a class="aq-btn" href="adote-um-amigo.html">
+        Ver todos os animais
+      </a>
+      <button id="aq-refazer" class="aq-btn" type="button">
+        Refazer o quiz
+      </button>
+    </div>
+  </div>
+
+  <p class="aq-aviso">
+    Projeto acadêmico fictício. O quiz é só uma brincadeira
+    ilustrativa: em uma adoção real, a equipe do abrigo
+    conversaria com você antes.
+  </p>
+</div>
+
+<style>
+  #aa-quiz {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 24px;
+    color: #352b30;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    text-align: center;
+  }
+
+  #aa-quiz * {
+    box-sizing: border-box;
+  }
+
+  #aa-quiz [hidden] {
+    display: none !important;
+  }
+
+  #aa-quiz .aq-tela {
+    background: #fff1f5;
+    border-radius: 28px;
+    padding: 40px 32px;
+  }
+
+  #aa-quiz .aq-etiqueta {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: bold;
+    color: #94375a;
+    background: #fff;
+    border: 1px solid #ecd4dd;
+    border-radius: 999px;
+    padding: 4px 14px;
+  }
+
+  #aa-quiz h2 {
+    font-size: 34px;
+    color: #94375a;
+    margin: 14px 0 10px;
+    line-height: 1.2;
+  }
+
+  #aa-quiz h3 {
+    font-size: 24px;
+    color: #352b30;
+    margin: 8px 0 22px;
+    line-height: 1.3;
+  }
+
+  #aa-quiz .aq-btn {
+    display: inline-block;
+    border: 2px solid #94375a;
+    background: #fff;
+    color: #94375a;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 12px 24px;
+    border-radius: 999px;
+    cursor: pointer;
+    text-decoration: none;
+    margin: 6px;
+    font-family: inherit;
+  }
+
+  #aa-quiz .aq-btn:hover {
+    background: #fbe3ec;
+  }
+
+  #aa-quiz .aq-rosa {
+    background: #94375a;
+    color: #fff;
+  }
+
+  #aa-quiz .aq-rosa:hover {
+    background: #7c2d4b;
+    color: #fff;
+  }
+
+  #aa-quiz .aq-link {
+    background: none;
+    border: 0;
+    color: #94375a;
+    cursor: pointer;
+    margin-top: 18px;
+    font-size: 15px;
+    font-family: inherit;
+  }
+
+  #aa-quiz .aq-progresso {
+    height: 8px;
+    background: #ecd4dd;
+    border-radius: 99px;
+    overflow: hidden;
+  }
+
+  #aa-quiz .aq-barra {
+    height: 100%;
+    width: 0;
+    background: #94375a;
+    transition: width 0.3s;
+  }
+
+  #aa-quiz .aq-contador {
+    font-size: 14px;
+    color: #7a6570;
+    margin: 12px 0 0;
+  }
+
+  #aa-quiz .aq-opcoes {
+    display: grid;
+    gap: 12px;
+  }
+
+  #aa-quiz .aq-opcao {
+    background: #fff;
+    border: 1px solid #ecd4dd;
+    border-radius: 18px;
+    padding: 16px 18px;
+    font-size: 17px;
+    color: #352b30;
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+    transition: transform 0.15s, border-color 0.15s;
+  }
+
+  #aa-quiz .aq-opcao:hover {
+    border-color: #94375a;
+    transform: translateY(-2px);
+  }
+
+  #aa-quiz .aq-destaque {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 24px;
+    align-items: center;
+    background: #fff;
+    border: 1px solid #ecd4dd;
+    border-radius: 24px;
+    padding: 20px;
+    text-align: left;
+    margin: 20px 0 8px;
+    box-shadow: 0 8px 24px #94375a15;
+  }
+
+  #aa-quiz .aq-destaque img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 18px;
+  }
+
+  #aa-quiz .aq-destaque h4 {
+    font-size: 28px;
+    color: #94375a;
+    margin: 0 0 4px;
+  }
+
+  #aa-quiz .aq-info {
+    font-size: 15px;
+    color: #7a6570;
+    margin: 0 0 10px;
+  }
+
+  #aa-quiz .aq-motivos {
+    margin: 10px 0 0;
+    padding-left: 20px;
+  }
+
+  #aa-quiz .aq-motivos li {
+    margin-bottom: 4px;
+  }
+
+  #aa-quiz .aq-sub {
+    font-size: 20px;
+    margin: 26px 0 12px;
+  }
+
+  #aa-quiz .aq-mini {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  #aa-quiz .aq-mini div {
+    background: #fff;
+    border: 1px solid #ecd4dd;
+    border-radius: 18px;
+    padding: 10px;
+  }
+
+  #aa-quiz .aq-mini img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
+  #aa-quiz .aq-mini strong {
+    display: block;
+    font-size: 18px;
+    margin-top: 6px;
+  }
+
+  #aa-quiz .aq-mini span {
+    font-size: 14px;
+    color: #7a6570;
+  }
+
+  #aa-quiz .aq-mini-link {
+    display: block;
+    margin-top: 8px;
+    font-weight: bold;
+    color: #94375a;
+    text-decoration: none;
+  }
+
+  #aa-quiz .aq-mini-link:hover {
+    text-decoration: underline;
+  }
+
+  #aa-quiz .aq-acoes {
+    margin-top: 24px;
+  }
+
+  #aa-quiz .aq-aviso {
+    font-size: 13px;
+    color: #7a6570;
+    margin-top: 18px;
+  }
+
+  @media (max-width: 600px) {
+    #aa-quiz {
+      padding: 12px;
+    }
+
+    #aa-quiz .aq-tela {
+      padding: 28px 18px;
+    }
+
+    #aa-quiz h2 {
+      font-size: 27px;
+    }
+
+    #aa-quiz .aq-destaque {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    #aa-quiz .aq-motivos {
+      text-align: left;
+    }
+  }
+</style>
+
+<script>
+(function () {
+  var PASTA =
+    "../imagens/";
+
+  var animais = [
+    {
+      nome: "Polenta",
+      idade: "8 meses",
+      porte: "Porte médio",
+      descricao: "Carinhosa e brincalhona, adora companhia.",
+      foto: PASTA + "IMG_20260831_164143-scaled-e1791926918237.jpg",
+      tags: ["cao", "filhote", "medio", "agitado", "companhia"]
+    },
+    {
+      nome: "Pituco",
+      idade: "5 anos",
+      porte: "Porte médio",
+      descricao: "Carinhoso, apaixonado por passeios, difícil de lidar com outros cachorros.",
+      foto: PASTA + "IMG_20260209_164427-scaled-e1791926905393.jpg",
+      tags: ["cao", "adulto", "medio", "passeios", "agitado", "soCao"]
+    },
+    {
+      nome: "Zeus",
+      idade: "7 anos",
+      porte: "Porte médio",
+      descricao: "Curioso e afetuoso, gosta de estar perto.",
+      foto: PASTA + "IMG-20261013-WA0013-e1791927062909.jpg",
+      tags: ["cao", "idoso", "medio", "calmo", "companhia"]
+    },
+    {
+      nome: "Dobby",
+      idade: "8 anos",
+      porte: "Porte pequeno",
+      descricao: "Companheiro, se dá bem com outros animais, tranquilo.",
+      foto: PASTA + "IMG-20261013-WA0022-e1791928041675.jpg",
+      tags: ["cao", "idoso", "pequeno", "calmo", "convive", "companhia"]
+    },
+    {
+      nome: "Lana",
+      idade: "8 anos",
+      porte: "Porte médio",
+      descricao: "Tranquila e carinhosa, adora passear.",
+      foto: PASTA + "IMG-20261013-WA0026-e1791927974169.jpg",
+      tags: ["cao", "idoso", "medio", "calmo", "passeios"]
+    },
+    {
+      nome: "Mingau",
+      idade: "3 anos",
+      porte: "Porte pequeno",
+      descricao: "Tranquilo, fácil de lidar, independente.",
+      foto: PASTA + "4-scaled-e1791928275497.png",
+      tags: ["gato", "adulto", "pequeno", "calmo", "independente"]
+    },
+    {
+      nome: "Nico",
+      idade: "4 anos",
+      porte: "Porte médio",
+      descricao: "Dócil com outros animais, adora brincar.",
+      foto: PASTA + "WhatsApp-Image-2026-10-13-at-19.03.10sdsds-e1791929217875.jpeg",
+      tags: ["cao", "adulto", "medio", "agitado", "convive"]
+    },
+    {
+      nome: "Zeca",
+      idade: "5 anos",
+      porte: "Porte médio",
+      descricao: "Dócil com pessoas, difícil de lidar com outros animais, castrado.",
+      foto: PASTA + "WhatsApp-Image-2026-10-13-at-19.03.10-e1791929260436.jpeg",
+      tags: ["cao", "adulto", "medio", "sozinho"]
+    }
+  ];
+
+  var perguntas = [
+    {
+      texto: "Você imagina um cachorro ou um gato?",
+      opcoes: [
+        {
+          t: "🐶 Um cachorro",
+          p: { cao: 5, gato: -8 },
+          m: "Você queria um cachorro"
+        },
+        {
+          t: "🐱 Um gato",
+          p: { gato: 10, cao: -4 },
+          m: "Você queria um gato"
+        },
+        {
+          t: "💗 Tanto faz, quero um amigo",
+          p: {}
+        }
+      ]
+    },
+    {
+      texto: "Onde o seu novo amigo vai morar?",
+      opcoes: [
+        {
+          t: "🏢 Apartamento",
+          p: { pequeno: 2, calmo: 1, agitado: -1 },
+          m: "Se adapta bem a espaços menores"
+        },
+        {
+          t: "🏡 Casa com quintal",
+          p: { medio: 1, agitado: 2 },
+          m: "Vai aproveitar o espaço da casa"
+        },
+        {
+          t: "🏠 Casa sem quintal",
+          p: { medio: 1, calmo: 1 }
+        }
+      ]
+    },
+    {
+      texto: "Já existem outros animais na casa?",
+      opcoes: [
+        {
+          t: "🐕 Sim, um cachorro",
+          p: { convive: 3, soCao: -10, sozinho: -10 },
+          m: "Se dá bem com outros animais"
+        },
+        {
+          t: "🐈 Sim, um gato ou outro bicho",
+          p: { convive: 3, sozinho: -10 },
+          m: "Se dá bem com outros animais"
+        },
+        {
+          t: "🚫 Não, seria o único",
+          p: { sozinho: 5, soCao: 3 },
+          m: "Prefere ser o único bichinho da casa"
+        }
+      ]
+    },
+    {
+      texto: "Como é o seu ritmo no dia a dia?",
+      opcoes: [
+        {
+          t: "⚡ Agitado: gosto de brincar e sair bastante",
+          p: { agitado: 3, passeios: 2, calmo: -1 },
+          m: "Tem energia para acompanhar seu ritmo"
+        },
+        {
+          t: "🚶 Meio-termo: um passeio por dia está ótimo",
+          p: { passeios: 2, calmo: 1 },
+          m: "Curte um bom passeio"
+        },
+        {
+          t: "🛋️ Tranquilo: prefiro sofá e sossego",
+          p: { calmo: 3, agitado: -2 },
+          m: "Tem um jeito tranquilo, como você"
+        }
+      ]
+    },
+    {
+      texto: "Quanto tempo você costuma ficar em casa?",
+      opcoes: [
+        {
+          t: "🏠 Fico bastante em casa",
+          p: { companhia: 3 },
+          m: "Adora ter alguém por perto"
+        },
+        {
+          t: "⏰ Fico fora boa parte do dia",
+          p: { independente: 4, companhia: -2, filhote: -2 },
+          m: "Lida bem com um tempo sem companhia"
+        }
+      ]
+    },
+    {
+      texto: "Que fase da vida você prefere?",
+      opcoes: [
+        {
+          t: "🍼 Filhote, para crescer junto",
+          p: { filhote: 5 },
+          m: "Ainda é filhote: vocês vão crescer juntos"
+        },
+        {
+          t: "🦴 Adulto, já com personalidade formada",
+          p: { adulto: 3 },
+          m: "Já é adulto, com a personalidade formada"
+        },
+        {
+          t: "👴 Mais velhinho e cheio de carinho",
+          p: { idoso: 4 },
+          m: "Já é mais velhinho e cheio de carinho"
+        },
+        {
+          t: "🤷 Tanto faz",
+          p: {}
+        }
+      ]
+    }
+  ];
+
+  var raiz = document.getElementById("aa-quiz");
+  if (!raiz) return;
+
+  var $ = function (id) {
+    return document.getElementById(id);
+  };
+
+  var respostas = [];
+  var atual = 0;
+
+  function mostrar(id) {
+    ["aq-intro", "aq-pergunta", "aq-resultado"].forEach(function (t) {
+      $(t).hidden = (t !== id);
+    });
+
+    raiz.scrollIntoView({ block: "start" });
+  }
+
+  function renderPergunta() {
+    var q = perguntas[atual];
+
+    $("aq-contador").textContent =
+      "Pergunta " + (atual + 1) + " de " + perguntas.length;
+
+    $("aq-barra").style.width =
+      (atual / perguntas.length * 100) + "%";
+
+    $("aq-texto").textContent = q.texto;
+    $("aq-voltar").hidden = (atual === 0);
+
+    var box = $("aq-opcoes");
+    box.innerHTML = "";
+
+    q.opcoes.forEach(function (op, i) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "aq-opcao";
+      b.textContent = op.t;
+
+      b.onclick = function () {
+        respostas[atual] = i;
+        atual++;
+
+        if (atual < perguntas.length) {
+          renderPergunta();
+        } else {
+          resultado();
+        }
+      };
+
+      box.appendChild(b);
+    });
+  }
+
+  function resultado() {
+    var lista = animais.map(function (a) {
+      var pontos = 0;
+      var motivos = [];
+
+      respostas.forEach(function (r, qi) {
+        var op = perguntas[qi].opcoes[r];
+        var ganhou = 0;
+
+        Object.keys(op.p).forEach(function (tag) {
+          if (a.tags.indexOf(tag) !== -1) {
+            ganhou += op.p[tag];
+          }
+        });
+
+        pontos += ganhou;
+
+        if (ganhou > 0 && op.m) {
+          motivos.push(op.m);
+        }
+      });
+
+      return {
+        a: a,
+        pontos: pontos,
+        motivos: motivos
+      };
+    });
+
+    lista.sort(function (x, y) {
+      return y.pontos - x.pontos;
+    });
+
+    var top = lista[0];
+    var motivos = top.motivos.length
+      ? top.motivos
+      : ["Tem muito carinho para dar"];
+
+    $("aq-principal").innerHTML =
+      '<img src="' + top.a.foto + '" alt="Foto de ' + top.a.nome + '">' +
+      '<div><h4>' + top.a.nome + '</h4>' +
+      '<p class="aq-info">' + top.a.idade + ' • ' + top.a.porte + '</p>' +
+      '<p>' + top.a.descricao + '</p>' +
+      '<strong>Por que combina com você:</strong>' +
+      '<ul class="aq-motivos">' +
+      motivos.map(function (m) {
+        return '<li>' + m + '</li>';
+      }).join("") +
+      '</ul></div>';
+
+    $("aq-adotar").href =
+      "adote-um-amigo.html#amigo=" +
+      encodeURIComponent(top.a.nome);
+
+    $("aq-adotar").textContent =
+      "♡ Quero adotar " + top.a.nome;
+
+    $("aq-outros").innerHTML = lista.slice(1, 3).map(function (it) {
+      return (
+        '<div><img src="' + it.a.foto +
+        '" alt="Foto de ' + it.a.nome + '">' +
+        '<strong>' + it.a.nome + '</strong>' +
+        '<span>' + it.a.idade + ' • ' + it.a.porte + '</span>' +
+        '<a class="aq-mini-link" href="adote-um-amigo.html#amigo=' +
+        encodeURIComponent(it.a.nome) +
+        '">♡ Quero adotar</a></div>'
+      );
+    }).join("");
+
+    $("aq-barra").style.width = "100%";
+    mostrar("aq-resultado");
+  }
+
+  $("aq-comecar").onclick = function () {
+    respostas = [];
+    atual = 0;
+    renderPergunta();
+    mostrar("aq-pergunta");
+  };
+
+  $("aq-voltar").onclick = function () {
+    if (atual > 0) {
+      atual--;
+      renderPergunta();
+    }
+  };
+
+  $("aq-refazer").onclick = function () {
+    mostrar("aq-intro");
+  };
+})();
+</script>

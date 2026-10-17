@@ -1,0 +1,298 @@
+<div id="aa-contato">
+  <section class="ac-abertura">
+    <span class="ac-etiqueta">Abrigo Amigo 🐾</span>
+    <h1>Fale conosco</h1>
+    <p>
+      Tem dúvidas sobre adoção ou quer conhecer melhor nosso
+      trabalho? Vamos conversar!
+    </p>
+  </section>
+
+  <div class="ac-colunas">
+    <section class="ac-card" aria-labelledby="ac-atendimento">
+      <span class="ac-icone" aria-hidden="true">💬</span>
+      <h2 id="ac-atendimento">Estamos aqui para ajudar</h2>
+
+      <p>
+        Saiba mais sobre os animais, os cuidados necessários
+        e as etapas de uma adoção responsável.
+      </p>
+
+      <button type="button" class="ac-botao ctc_chat">
+        Conversar pelo WhatsApp
+      </button>
+
+      <p class="ac-observacao">
+        O botão abre o WhatsApp com uma mensagem pronta.
+        Você pode revisá-la antes de enviar.
+      </p>
+    </section>
+
+    <section class="ac-card" aria-labelledby="ac-informacoes">
+      <h2 id="ac-informacoes">Informações de contato</h2>
+
+      <div class="ac-item">
+        <span aria-hidden="true">✉️</span>
+        <div>
+          <h3>E-mail</h3>
+          <p>contato@abrigoamigo.example</p>
+          <small>Endereço ilustrativo para o projeto.</small>
+        </div>
+      </div>
+
+      <div class="ac-item">
+        <span aria-hidden="true">🕒</span>
+        <div>
+          <h3>Horário de atendimento</h3>
+          <p>Segunda a sexta, das 9h às 17h.</p>
+          <small>Horário ilustrativo.</small>
+        </div>
+      </div>
+
+      <div class="ac-item">
+        <span aria-hidden="true">🐾</span>
+        <div>
+          <h3>Visitas e adoções</h3>
+          <p>
+            Na proposta do abrigo, as visitas seriam agendadas
+            após o primeiro contato com a equipe.
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="ac-duvidas" aria-labelledby="ac-perguntas">
+    <h2 id="ac-perguntas">Dúvidas frequentes</h2>
+    <p>Algumas respostas para ajudar você a dar o primeiro passo.</p>
+
+    <details>
+      <summary>Como demonstrar interesse em um animal?</summary>
+      <p>
+        Acesse a página de adoção, conheça os bichinhos e clique
+        em “Quero adotar” no animal escolhido. Neste projeto,
+        o formulário é demonstrativo e não envia dados.
+      </p>
+    </details>
+
+    <details>
+      <summary>Preencher o formulário garante a adoção?</summary>
+      <p>
+        Não. Em um abrigo real, o formulário iniciaria uma conversa
+        com a equipe, que avaliaria as necessidades do animal
+        e as condições para uma adoção responsável.
+      </p>
+    </details>
+
+    <details>
+      <summary>O que devo considerar antes de adotar?</summary>
+      <p>
+        Considere sua rotina, o espaço disponível e os custos de
+        alimentação e atendimento veterinário. O animal também
+        precisará de companhia, segurança e cuidados por toda a vida.
+      </p>
+    </details>
+
+    <details>
+      <summary>Este abrigo existe de verdade?</summary>
+      <p>
+        O Abrigo Amigo é uma ONG fictícia desenvolvida para um
+        projeto acadêmico. O contato pelo WhatsApp utiliza
+        um número de teste para demonstrar a integração.
+      </p>
+    </details>
+  </section>
+
+  <footer class="ac-nota">
+    Projeto acadêmico fictício. O WhatsApp está disponível
+    exclusivamente para demonstração.
+  </footer>
+</div>
+
+<style>
+  #aa-contato {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px;
+    color: #352b30;
+    font-family: Arial, sans-serif;
+    line-height: 1.65;
+  }
+
+  #aa-contato * {
+    box-sizing: border-box;
+  }
+
+  #aa-contato .ac-abertura {
+    padding: 48px 28px;
+    background: #fff1f5;
+    border-radius: 28px;
+    text-align: center;
+  }
+
+  #aa-contato .ac-etiqueta {
+    color: #94375a;
+    font-size: 15px;
+    font-weight: bold;
+  }
+
+  #aa-contato h1 {
+    margin: 12px 0;
+    color: #63253d;
+    font-size: clamp(32px, 5vw, 46px);
+    line-height: 1.2;
+  }
+
+  #aa-contato h2 {
+    margin: 0 0 16px;
+    color: #63253d;
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  #aa-contato h3 {
+    margin: 0 0 4px;
+    color: #63253d;
+    font-size: 18px;
+  }
+
+  #aa-contato p {
+    margin: 0 0 16px;
+    font-size: 17px;
+  }
+
+  #aa-contato .ac-abertura p {
+    max-width: 650px;
+    margin: 0 auto;
+  }
+
+  #aa-contato .ac-colunas {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    margin: 32px 0 48px;
+  }
+
+  #aa-contato .ac-card {
+    padding: 32px;
+    background: white;
+    border: 1px solid #ecd4dd;
+    border-radius: 22px;
+    box-shadow: 0 8px 24px #94375a0d;
+  }
+
+  #aa-contato .ac-icone {
+    display: inline-block;
+    margin-bottom: 16px;
+    font-size: 42px;
+  }
+
+  #aa-contato .ac-botao {
+    display: inline-block;
+    min-height: 48px;
+    padding: 14px 22px;
+    border: 0;
+    border-radius: 14px;
+    background: #216c45;
+    color: white;
+    font: inherit;
+    font-weight: bold;
+    cursor: pointer;
+    white-space: normal;
+  }
+
+  #aa-contato .ac-botao:hover {
+    background: #185134;
+  }
+
+  #aa-contato .ac-botao:focus-visible,
+  #aa-contato summary:focus-visible {
+    outline: 3px solid #326a91;
+    outline-offset: 4px;
+  }
+
+  #aa-contato .ac-observacao {
+    margin-top: 16px;
+    color: #71545f;
+    font-size: 13px;
+  }
+
+  #aa-contato .ac-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-top: 24px;
+  }
+
+  #aa-contato .ac-item > span {
+    flex-shrink: 0;
+    font-size: 25px;
+  }
+
+  #aa-contato .ac-item p {
+    margin-bottom: 4px;
+    overflow-wrap: anywhere;
+    font-size: 16px;
+  }
+
+  #aa-contato small {
+    color: #71545f;
+    font-size: 13px;
+  }
+
+  #aa-contato .ac-duvidas {
+    max-width: 850px;
+    margin: 0 auto;
+  }
+
+  #aa-contato .ac-duvidas > h2,
+  #aa-contato .ac-duvidas > p {
+    text-align: center;
+  }
+
+  #aa-contato details {
+    margin-top: 14px;
+    padding: 18px 22px;
+    background: #fff8fa;
+    border: 1px solid #ecd4dd;
+    border-radius: 14px;
+  }
+
+  #aa-contato summary {
+    min-height: 28px;
+    color: #63253d;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  #aa-contato details p {
+    margin: 16px 0 0;
+    font-size: 16px;
+  }
+
+  #aa-contato .ac-nota {
+    margin-top: 40px;
+    color: #71545f;
+    text-align: center;
+    font-size: 13px;
+  }
+
+  @media (max-width: 760px) {
+    #aa-contato {
+      padding: 16px;
+    }
+
+    #aa-contato .ac-colunas {
+      grid-template-columns: 1fr;
+    }
+
+    #aa-contato .ac-card {
+      padding: 24px;
+    }
+
+    #aa-contato .ac-abertura {
+      padding: 32px 20px;
+    }
+  }
+</style>

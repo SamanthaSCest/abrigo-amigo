@@ -1,0 +1,505 @@
+<div id="abrigo-adocao">
+  <h2>Encontre seu amigo 🐾</h2>
+  <p>Uma nova amizade pode começar aqui.</p>
+
+  <article class="aa-card">
+    <div class="aa-foto" id="aa-foto"></div>
+    <div class="aa-conteudo">
+      <h3 id="aa-nome">Conheça nosso amigo</h3>
+      <p id="aa-info"></p>
+      <p id="aa-descricao"></p>
+    </div>
+  </article>
+
+  <p id="aa-contador" aria-live="polite"></p>
+
+  <div class="aa-acoes">
+    <button type="button" id="aa-proximo">
+      Ver próximo 🐾
+    </button>
+    <button type="button" id="aa-adotar" class="aa-rosa">
+      ♡ Quero adotar
+    </button>
+  </div>
+
+  <button
+    type="button"
+    id="aa-ver-todos"
+    aria-expanded="false"
+    aria-controls="aa-todos">
+    Ver todos os animais
+  </button>
+
+  <div id="aa-todos" hidden></div>
+
+  <dialog id="aa-modal" aria-labelledby="aa-titulo-form">
+    <form id="aa-formulario">
+      <h3 id="aa-titulo-form">Interesse em adoção</h3>
+      <p>Conte um pouco sobre você e seu lar.</p>
+
+      <label>
+        Seu nome
+        <input name="nome" autocomplete="name" required>
+      </label>
+
+      <label>
+        E-mail
+        <input
+          name="email"
+          type="email"
+          autocomplete="email"
+          required>
+      </label>
+
+      <label>
+        Telefone / WhatsApp
+        <input
+          name="telefone"
+          type="tel"
+          autocomplete="tel"
+          required>
+      </label>
+
+      <label>
+        Como é a casa onde o animal vai morar?
+        <textarea
+          name="mensagem"
+          rows="3"
+          required></textarea>
+      </label>
+
+      <p class="aa-aviso">
+        Demonstração acadêmica: os dados não serão enviados.
+        A adoção depende de avaliação do abrigo.
+      </p>
+
+      <div class="aa-acoes">
+        <button type="button" id="aa-fechar">Voltar</button>
+        <button type="submit" class="aa-rosa">
+          Testar formulário
+        </button>
+      </div>
+
+      <output id="aa-resultado"></output>
+    </form>
+  </dialog>
+</div>
+
+<style>
+  #abrigo-adocao {
+    max-width: 620px;
+    margin: 24px auto;
+    padding: 20px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    color: #352b30;
+    line-height: 1.5;
+  }
+
+  #abrigo-adocao * {
+    box-sizing: border-box;
+  }
+
+  #abrigo-adocao [hidden] {
+    display: none !important;
+  }
+
+  #abrigo-adocao h2 {
+    font-size: 30px;
+    color: #94375a;
+    margin-bottom: 12px;
+  }
+
+  #abrigo-adocao h3 {
+    margin: 0 0 12px;
+    font-size: 25px;
+    color: #352b30;
+  }
+
+  #abrigo-adocao .aa-card {
+    background: white;
+    border: 1px solid #ecd4dd;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px #94375a15;
+    margin-top: 24px;
+  }
+
+  #abrigo-adocao .aa-foto {
+    height: 320px;
+    background: #fce9ef;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    font-size: 100px;
+  }
+
+  #abrigo-adocao .aa-foto img,
+  #abrigo-adocao .aa-mini-foto img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  #abrigo-adocao .aa-conteudo {
+    padding: 24px;
+    text-align: left;
+  }
+
+  #abrigo-adocao #aa-info {
+    color: #71545f;
+    font-weight: bold;
+  }
+
+  #abrigo-adocao .aa-acoes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  #abrigo-adocao button {
+    min-height: 48px;
+    padding: 12px 16px;
+    border: 1px solid #94375a;
+    border-radius: 14px;
+    background: white;
+    color: #94375a;
+    font: inherit;
+    font-weight: bold;
+    cursor: pointer;
+    white-space: normal;
+  }
+
+  #abrigo-adocao .aa-acoes button {
+    flex: 1;
+  }
+
+  #abrigo-adocao button.aa-rosa {
+    background: #94375a;
+    color: white;
+  }
+
+  #abrigo-adocao button:hover {
+    background: #fce9ef;
+  }
+
+  #abrigo-adocao button.aa-rosa:hover {
+    background: #772b48;
+  }
+
+  #abrigo-adocao :is(button, input, textarea):focus-visible {
+    outline: 3px solid #326a91;
+    outline-offset: 3px;
+  }
+
+  #abrigo-adocao #aa-ver-todos {
+    margin-top: 20px;
+  }
+
+  #abrigo-adocao #aa-todos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 24px;
+  }
+
+  #abrigo-adocao .aa-mini-card {
+    border: 1px solid #ecd4dd;
+    border-radius: 16px;
+    overflow: hidden;
+    background: white;
+    padding-bottom: 16px;
+  }
+
+  #abrigo-adocao .aa-mini-foto {
+    height: 170px;
+    background: #fce9ef;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    font-size: 64px;
+  }
+
+  #abrigo-adocao .aa-mini-card h3 {
+    margin: 14px 10px 8px;
+    font-size: 21px;
+  }
+
+  #abrigo-adocao .aa-mini-card p {
+    margin: 8px 12px;
+    font-size: 14px;
+  }
+
+  #abrigo-adocao .aa-mini-card button {
+    width: calc(100% - 20px);
+    margin: 8px 10px 0;
+  }
+
+  #abrigo-adocao dialog {
+    width: min(500px, 90vw);
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 24px;
+    border: 0;
+    border-radius: 20px;
+    text-align: left;
+    background: white;
+    color: #352b30;
+  }
+
+  #abrigo-adocao dialog::backdrop {
+    background: #23151d99;
+  }
+
+  #abrigo-adocao label {
+    display: block;
+    margin: 16px 0;
+    font-weight: bold;
+  }
+
+  #abrigo-adocao input,
+  #abrigo-adocao textarea {
+    display: block;
+    width: 100%;
+    margin-top: 8px;
+    padding: 12px;
+    border: 1px solid #8b7880;
+    border-radius: 8px;
+    font: inherit;
+    background: white;
+    color: #352b30;
+  }
+
+  #abrigo-adocao .aa-aviso {
+    font-size: 13px;
+  }
+
+  #abrigo-adocao #aa-resultado {
+    display: block;
+    margin: 16px 0;
+    color: #35633e;
+    font-weight: bold;
+  }
+
+  @media (max-width: 420px) {
+    #abrigo-adocao {
+      padding: 12px;
+    }
+
+    #abrigo-adocao .aa-foto {
+      height: 260px;
+    }
+
+    #abrigo-adocao #aa-todos {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+(() => {
+  const raiz = document.getElementById("abrigo-adocao");
+
+  if (!raiz || raiz.dataset.iniciado) return;
+  raiz.dataset.iniciado = "sim";
+
+  const animais = [
+    {
+      nome: "Polenta",
+      idade: "8 meses",
+      porte: "Porte médio",
+      descricao: "Carinhosa e brincalhona, adora companhia.",
+      foto: "../imagens/IMG_20260831_164143-scaled-e1791926918237.jpg"
+    },
+    {
+      nome: "Pituco",
+      idade: "5 anos",
+      porte: "Porte médio",
+      descricao: "Carinhoso, apaixonado por passeios, difícil de lidar com outros cachorros.",
+      foto: "../imagens/pituco.jpg"
+    },
+    {
+      nome: "Zeus",
+      idade: "7 anos",
+      porte: "Porte médio",
+      descricao: "Curioso e afetuoso, gosta de estar perto.",
+      foto: "../imagens/zeus.jpg"
+    },
+    {
+      nome: "Dobby",
+      idade: "8 anos",
+      porte: "Porte pequeno",
+      descricao: "Companheiro, se dá bem com outros animais, tranquilo.",
+      foto: "../imagens/dobby.jpg"
+    },
+    {
+      nome: "Lana",
+      idade: "8 anos",
+      porte: "Porte médio",
+      descricao: "Tranquila e carinhosa, adora passear.",
+      foto: "../imagens/lana.jpg"
+    },
+    {
+      nome: "Mingau",
+      idade: "3 anos",
+      porte: "Porte pequeno",
+      descricao: "Tranquilo, fácil de lidar, independente.",
+      foto: "../imagens/mingau.png"
+    },
+    {
+      nome: "Nico",
+      idade: "4 anos",
+      porte: "Porte médio",
+      descricao: "Dócil com outros animais, adora brincar.",
+      foto: "../imagens/nico.jpeg"
+    },
+    {
+      nome: "Zeca",
+      idade: "5 anos",
+      porte: "Porte médio",
+      descricao: "Dócil com pessoas, difícil de lidar com outros animais, castrado.",
+      foto: "../imagens/zeca.jpeg"
+    }
+  ];
+
+  const buscar = id => raiz.querySelector("#" + id);
+  const modal = buscar("aa-modal");
+  const formulario = buscar("aa-formulario");
+
+  let atual = 0;
+  let selecionado = 0;
+
+  function preencherFoto(container, animal) {
+    container.replaceChildren();
+
+    if (!animal.foto) {
+      const emoji = document.createElement("span");
+      emoji.textContent = "🐶";
+      emoji.setAttribute("role", "img");
+      emoji.setAttribute("aria-label", "Foto ainda não cadastrada");
+      container.appendChild(emoji);
+      return;
+    }
+
+    const imagem = document.createElement("img");
+    imagem.alt = "Foto de " + animal.nome;
+
+    imagem.onerror = () => {
+      const aviso = document.createElement("span");
+      aviso.textContent = "🐶";
+      aviso.setAttribute("role", "img");
+      aviso.setAttribute("aria-label", "Foto indisponível");
+      container.replaceChildren(aviso);
+    };
+
+    imagem.src = animal.foto;
+    container.appendChild(imagem);
+  }
+
+  function mostrar() {
+    const animal = animais[atual];
+
+    buscar("aa-nome").textContent = animal.nome;
+    buscar("aa-info").textContent =
+      animal.idade + " • " + animal.porte;
+    buscar("aa-descricao").textContent = animal.descricao;
+    buscar("aa-contador").textContent =
+      (atual + 1) + " de " + animais.length + " amigos";
+
+    preencherFoto(buscar("aa-foto"), animal);
+  }
+
+  function abrirFormulario(indice) {
+    selecionado = indice;
+    formulario.reset();
+    buscar("aa-resultado").textContent = "";
+    buscar("aa-titulo-form").textContent =
+      "Quero conhecer " + animais[indice].nome + " ♡";
+
+    modal.showModal();
+  }
+
+  buscar("aa-proximo").onclick = () => {
+    atual = (atual + 1) % animais.length;
+    mostrar();
+  };
+
+  buscar("aa-adotar").onclick = () => {
+    abrirFormulario(atual);
+  };
+
+  buscar("aa-fechar").onclick = () => {
+    modal.close();
+  };
+
+  formulario.onsubmit = evento => {
+    evento.preventDefault();
+
+    buscar("aa-resultado").textContent =
+      "Teste concluído para " +
+      animais[selecionado].nome +
+      "! Nenhum dado foi enviado ao abrigo.";
+  };
+
+  const lista = buscar("aa-todos");
+  const botaoTodos = buscar("aa-ver-todos");
+
+  animais.forEach((animal, indice) => {
+    const card = document.createElement("article");
+    card.className = "aa-mini-card";
+
+    const foto = document.createElement("div");
+    foto.className = "aa-mini-foto";
+    preencherFoto(foto, animal);
+
+    const nome = document.createElement("h3");
+    nome.textContent = animal.nome;
+
+    const info = document.createElement("p");
+    info.textContent = animal.idade + " • " + animal.porte;
+
+    const descricao = document.createElement("p");
+    descricao.textContent = animal.descricao;
+
+    const adotar = document.createElement("button");
+    adotar.type = "button";
+    adotar.className = "aa-rosa";
+    adotar.textContent = "♡ Quero adotar";
+    adotar.setAttribute(
+      "aria-label",
+      "Quero adotar " + animal.nome
+    );
+
+    adotar.onclick = () => abrirFormulario(indice);
+
+    card.append(foto, nome, info, descricao, adotar);
+    lista.appendChild(card);
+  });
+
+  botaoTodos.onclick = () => {
+    const abrir = lista.hidden;
+    lista.hidden = !abrir;
+
+    botaoTodos.setAttribute("aria-expanded", String(abrir));
+    botaoTodos.textContent = abrir
+      ? "Ocultar lista de animais"
+      : "Ver todos os animais";
+  };
+
+  mostrar();
+
+  const pedido = decodeURIComponent(
+    (location.hash.match(/amigo=([^&]+)/) || [])[1] || ""
+  );
+
+  const achado = animais.findIndex(a => a.nome === pedido);
+
+  if (achado !== -1) {
+    atual = achado;
+    mostrar();
+    abrirFormulario(achado);
+  }
+})();
+</script>
