@@ -32,7 +32,7 @@ acolhedora, inspirada no aplicativo tinder, informações sobre adoção respons
 ![Guia de cuidados](screenshots/cuidados.png)
 
 ### Contato
-![Página de contato](screenshots/faleconosco.png)
+![Página de contato](screenshots/fale-conosco.png)
 
 ### Quiz
 ![Início do quiz](screenshots/quiz-inicio.png)
